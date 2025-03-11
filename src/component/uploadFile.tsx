@@ -16,11 +16,11 @@ export default function UploadFile() {
             // Allow only XML and CSV files
             const allowedTypes = ["text/xml", "application/xml", "text/csv"];
 
-            // if (!allowedTypes.includes(file.type)) {
-            //     setErrorMessage("Only XML and CSV files are allowed.");
-            //     setSelectedFile(null);
-            //     return;
-            // }
+            if (!allowedTypes.includes(file.type)) {
+                setErrorMessage("Only XML and CSV files are allowed.");
+                setSelectedFile(null);
+                return;
+            }
 
             setSelectedFile(file);
             setUploadProgress(0);
