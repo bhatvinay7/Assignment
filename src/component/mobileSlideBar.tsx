@@ -33,7 +33,9 @@ export default function MbileSlideBar() {
       <FontAwesomeIcon className="text-sm" icon={faUserPlus} />
         Add Agents
       </div>
-
+       <div onClick={()=>{router.push('/signup'),dispatch(isOpen(!value))}} className="hover:cursor-pointer ">
+      Sign Up
+      </div>
       <div onClick={()=>{router.push('/signIn'),dispatch(isOpen(!value))}} className="hover:cursor-pointer ">
       Sign In
       </div>
