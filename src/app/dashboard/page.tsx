@@ -34,7 +34,7 @@ export default function page() {
       <div key={index} className=" max-w-[360px] bg-pink-100/60 h-fit rounded-md p-2">
         <div className="flex items-center space-x-2">
 
-        <span className="font-medium text-base">Email:</span>
+        <span className="font-medium text-base">Name:</span>
         <h2 className="text-indigo-950 p-2">{agent.userName}</h2>
 
         </div>
