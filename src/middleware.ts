@@ -1,6 +1,6 @@
 import {NextResponse,NextRequest} from 'next/server'
 export const config = {
-    matcher: ['/dashboard/:path*','/api/agentForm','/api/:path*],
+    matcher: ['/dashboard/:path*','/api/agentForm','/api/:path*'],
     };
     
 export  async  function middleware(request:NextRequest){
