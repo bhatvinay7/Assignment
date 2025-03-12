@@ -1,6 +1,6 @@
 'use client'
 import React, { useState,useEffect } from "react";
-import axios from 'axios'
+import axios from '@/lib/axios'
 // import { setTimeout } from "timers/promises";
 export default function UploadFile() {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
