@@ -4,8 +4,13 @@ import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 import { isOpen,toggle } from '@/lib/redux/slideBarSlice/slidebar';
+import { useSession } from "next-auth/react";
 import {useSelector,useDispatch} from 'react-redux'
 export default function Header() {
+   const { data: session, status } = useSession();
+
+  
+
   const value=useSelector(toggle)
   const dispatch=useDispatch()
     const router=useRouter()
@@ -19,11 +24,12 @@ export default function Header() {
         <div className='text-slate-100  md:text-3xl font-semibold  text-2xl '>AccessGate</div>
 
         </div>
+          {!session?.user ?
         <div className='flex justify-center items-center space-x-1.5'>
         <button onClick={() => router.push('/signup')} type='button' className='mr-4  px-3 lg:py-1.5 py-1 hidden sm:block rounded-sm border text-slate-600 hover:bg-gray-300/90 border-black/15 bg-gray-300'>Sign Up</button>
         <button onClick={() => router.push('/signIn')} type='button' className='mr-4 px-3 lg:py-1.5 py-1 hidden sm:block rounded-sm border text-slate-600 hover:bg-gray-300/90 border-black/15 bg-gray-300'>Sign In</button>
 
-        </div>
+        </div>:<></>}
       
       </nav>
     </header>
