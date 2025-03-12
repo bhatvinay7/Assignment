@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useState,useEffect } from "react";
-import axios from 'axios'
+import axios from '@/lib/axios'
 import AutoSizer from "react-virtualized-auto-sizer"
 import {z} from 'zod'
 import {
