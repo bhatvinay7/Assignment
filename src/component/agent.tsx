@@ -2,7 +2,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import { useSession } from "next-auth/react";
-import axios from 'axios'
+import axios from '@/lib/axios'
 export default function Agent() {
     const { data: session, status } = useSession();
     const [agents,setAgentsData]=useState<any>([])
