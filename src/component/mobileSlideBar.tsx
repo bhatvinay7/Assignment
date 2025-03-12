@@ -3,12 +3,14 @@ import React from 'react'
 import { toggle } from '@/lib/redux/slideBarSlice/slidebar';
 import {useSelector,useDispatch} from 'react-redux'
 import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import {isOpen} from '@/lib/redux/slideBarSlice/slidebar'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUsers,faFile,faUserPlus,faChessBoard} from "@fortawesome/free-solid-svg-icons";
 import {useRouter} from 'next/navigation'
 export default function MbileSlideBar() {
   const router=useRouter()
+  const { data: session, status } = useSession();
   const value=useSelector(toggle)
   const dispatch=useDispatch()
    const handleLogout = async () => {
@@ -33,12 +35,13 @@ export default function MbileSlideBar() {
       <FontAwesomeIcon className="text-sm" icon={faUserPlus} />
         Add Agents
       </div>
+         {!session?.user ?  
        <div onClick={()=>{router.push('/signup'),dispatch(isOpen(!value))}} className="hover:cursor-pointer ">
       Sign Up
       </div>
       <div onClick={()=>{router.push('/signIn'),dispatch(isOpen(!value))}} className="hover:cursor-pointer ">
       Sign In
-      </div>
+      </div>:<></>}
       <div onClick={()=>{handleLogout(),dispatch(isOpen(!value))}} className="hover:cursor-pointer hover:text-red-600">
        Log Out
       </div>
