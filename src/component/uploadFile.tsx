@@ -45,7 +45,7 @@ export default function UploadFile() {
                 else{
                     return
                 }
-                const response=await axios.post('http://localhost:3000/api/uploadFile',formData,{headers: { "Content-Type": "multipart/form-data" }})
+                const response=await axios.post('/api/uploadFile',formData,{headers: { "Content-Type": "multipart/form-data" }})
                 setResponse(response.data)
             }
             catch(error:any){
