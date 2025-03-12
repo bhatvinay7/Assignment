@@ -1,7 +1,7 @@
 'use client'
 import { useState,useEffect } from "react";
 import React from 'react'
-import axios from 'axios'
+import axios from '@/lib/axios'
 import {z} from 'zod'
 
 
