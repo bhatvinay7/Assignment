@@ -4,6 +4,7 @@ import {NextResponse,NextRequest} from 'next/server'
 import { existsSync } from "fs";
 import mongoose from "mongoose";
 import { unlink as fsUnlink } from "fs/promises";
+import connect from '@/lib/db'
 import { getServerSession } from "next-auth";
 import  authOptions  from "@/lib/auth"
 import fs from 'fs'
@@ -29,7 +30,7 @@ export async function POST(req:NextRequest) {
         if (!session) {
           return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-
+         await connect();
         const formData = await req.formData();
         const file = formData.get("file"); // Get file from FormData
 
@@ -152,7 +153,7 @@ export async function GET(request:NextRequest){
               return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
             }
     
-
+             await connect()
             const user=await User.findOne({email:session?.user?.email})
          const userId=user._id
             const groupedAgents = await agentList.aggregate([
