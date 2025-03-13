@@ -49,7 +49,7 @@ export async function POST(req:NextRequest) {
         const buffer = Buffer.from(bytes);
 
         // Define the upload directory
-        const uploadDir = path.join(process.cwd(), "/tmp");
+        const uploadDir ="/tmp/uploads"
 
         // Ensure the directory exists
         if (!existsSync(uploadDir)) {
