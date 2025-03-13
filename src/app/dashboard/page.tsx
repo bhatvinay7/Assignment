@@ -52,7 +52,7 @@ export default function page() {
         <div className="mt-2 flex flex-wrap gap-2">
           {agent.fileUrls.map((url: string, index: number) => (
             <a key={index} href={url} download>
-              <button type="button" className="px-4 py-1 text-base bg-blue-500/75 text-white rounded">
+              <button type="button" className="px-3 py-1 text-sm bg-blue-500/75 text-white rounded">
                 Download <FontAwesomeIcon className="ml-1 text-sm " icon={faArrowDown} />
               </button>
             </a>
